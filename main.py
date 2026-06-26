@@ -271,7 +271,7 @@ async def etkinlik_olustur(
         color=0x2ecc71
     )
 
-    embed.set_footer(text="CASTELLANO EVENT SYSTEM")
+    embed.set_footer(text="UNFORTUNE EVENT SYSTEM")
     embed.set_thumbnail(url=DEFAULT_THUMBNAIL)
     embed.set_image(url=DEFAULT_BANNER)
 
