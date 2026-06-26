@@ -1,4 +1,5 @@
 import os
+import json
 import discord
 from discord.ext import commands
 from discord import app_commands
@@ -38,7 +39,23 @@ bot = commands.Bot(
     intents=intents
 )
 
-events = {}
+EVENT_FILE = "events.json"
+
+def load_events():
+    if os.path.exists(EVENT_FILE):
+        try:
+            with open(EVENT_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                return {int(k): v for k, v in data.items()}
+        except Exception:
+            return {}
+    return {}
+
+def save_events():
+    with open(EVENT_FILE, "w", encoding="utf-8") as f:
+        json.dump(events, f, ensure_ascii=False, indent=4)
+
+events = load_events()
 
 # =========================
 # SAAT KONTROL
@@ -136,6 +153,8 @@ class EventView(discord.ui.View):
             return
 
         event["participants"].append(interaction.user.id)
+        save_events()
+        save_events()
 
         await update_embed(
             interaction,
@@ -172,6 +191,8 @@ class EventView(discord.ui.View):
         event["participants"].remove(interaction.user.id)
 
         event["last_left"] = interaction.user.name
+        save_events()
+        save_events()
 
         await update_embed(
             interaction,
@@ -253,6 +274,10 @@ async def etkinlik_olustur(
         "last_left": "Yok",
         "event_time": saat
     }
+
+    save_events()
+
+    save_events()
 
     embed = discord.Embed(
         title=f"🎯 {baslik}",
@@ -353,6 +378,8 @@ async def etkinlik_sil(
             return
 
         del events[eid]
+        save_events()
+        save_events()
 
         await interaction.response.send_message(
             "✅ Etkinlik başarıyla silindi."
@@ -419,4 +446,9 @@ async def on_ready():
 # =========================
 
 keep_alive()
-bot.run(TOKEN)
+
+try:
+    bot.run(TOKEN)
+except Exception as e:
+    print("BOT KAPANDI:", e)
+    time.sleep(5)
