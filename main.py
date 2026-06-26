@@ -21,9 +21,9 @@ RULES_TEXT = (
     "• Şüpheli durumlarda yönetim manuel kontrol yapabilir."
 )
 
-DEFAULT_BANNER = "https://discord.com/channels/1371216823571451934/1519426746041110791/1520049280088412351"
+DEFAULT_BANNER = "https://cdn.discordapp.com/attachments/1519426746041110791/1520049279773708429/unfortune_banner.webp?ex=6a3fc7b5&is=6a3e7635&hm=b53cf06e93b1e09e883a83ca6693e42b8899374ff2fdd736bc5b6108f2ec8150&"
 
-DEFAULT_THUMBNAIL = "https://discord.com/channels/1371216823571451934/1519426746041110791/1520049280088412351"
+DEFAULT_THUMBNAIL = "https://cdn.discordapp.com/attachments/1519426746041110791/1520049279408799816/unfortune_pp.jpg?ex=6a3fc7b5&is=6a3e7635&hm=f4bf8c5f49ade1920e77bb30adf31841fb5478e0df89dcfe9eecc8c8d94fe542&"
 
 # =========================
 # BOT
@@ -89,7 +89,7 @@ async def update_embed(interaction, event_id):
         color=0x2ecc71
     )
 
-    embed.set_footer(text="CASTELLANO EVENT SYSTEM")
+    embed.set_footer(text="UNFORTUNE EVENT SYSTEM")
     embed.set_thumbnail(url=DEFAULT_THUMBNAIL)
     embed.set_image(url=DEFAULT_BANNER)
 
