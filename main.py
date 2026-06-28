@@ -225,7 +225,7 @@ class EventView(discord.ui.View):
         )
 
         await interaction.response.send_message(
-            f"📋 **CASTELLANO KATILIMCI LİSTESİ**\n\n{liste}",
+            f"📋 **UNFORTUNE KATILIMCI LİSTESİ**\n\n{liste}",
             ephemeral=True
         )
 
@@ -342,7 +342,7 @@ async def katilimcilar(
     )
 
     await interaction.response.send_message(
-        f"📋 **CASTELLANO KATILIMCI LİSTESİ**\n\n{liste}",
+        f"📋 **UNFORTUNE KATILIMCI LİSTESİ**\n\n{liste}",
         ephemeral=True
     )
 
@@ -438,7 +438,7 @@ async def on_ready():
 
     print("=" * 50)
     print(f"{bot.user} aktif.")
-    print("CASTELLANO EVENT BOT HAZIR")
+    print("UNFORTUNE EVENT BOT HAZIR")
     print("=" * 50)
 
 # =========================
